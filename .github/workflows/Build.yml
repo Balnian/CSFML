@@ -33,7 +33,7 @@ jobs:
         # Artifact name
         name: linux-x64
         # Directory containing files to upload
-        path: tools/nuget/CSFML/runtimes/linux-x64/native
+        path: tools/nuget/CSFML/runtimes/linux-x64
   
   Windows:
     runs-on: [windows-latest]
@@ -42,6 +42,7 @@ jobs:
       - name: Build
         run:  |
           cd tools/nuget
+          cmake.exe --version
           .\build.win.ps1
       - name: Upload artifact x64
         uses: actions/upload-artifact@v1.0.0
@@ -49,11 +50,11 @@ jobs:
           # Artifact name
           name: win-x64
           # Directory containing files to upload
-          path: tools/nuget/CSFML/runtimes/win-x64/native
+          path: tools/nuget/CSFML/runtimes/win-x64
       - name: Upload artifact x86
         uses: actions/upload-artifact@v1.0.0
         with:
           # Artifact name
           name: win-x86
           # Directory containing files to upload
-          path: tools/nuget/CSFML/runtimes/win-x86/native
+          path: tools/nuget/CSFML/runtimes/win-x86
