@@ -88,9 +88,9 @@ jobs:
           # Artifact name
           name: linux-x64# optional
           # Destination path
-          path: tools/nuget/CSFML/runtimesCSFML/runtimes # optional
+          path: tools/nuget/CSFML/runtimes/CSFML/runtimes # optional
           # artifact source
-          source: # optional, default is current
+          #source: # optional, default is current
       # Dowload Windows Artifact
       # Dowload macOS Artifact
       - name: Package Nuget
