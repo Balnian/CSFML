@@ -58,3 +58,31 @@ jobs:
           name: win-x86
           # Directory containing files to upload
           path: tools/nuget/CSFML/runtimes/win-x86
+        
+  Mac:
+    runs-on: [macOS-latest]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Tools
+      run: |
+        brew install coreutils
+    - name: Build
+      env:
+        CC: clang
+        CXX: clang++
+      run:  |
+        cd tools/nuget
+        ls -al
+        ./build.linux.sh macos-x64
+
+  Package:
+    needs: [Linux,Windows,Mac]
+    runs-on: [ubuntu-latest]
+    steps:
+      # Dowload Linux Artifact
+      # Dowload Windows Artifact
+      # Dowload macOS Artifact
+      - name: Package Nuget
+        run: |
+          cd tools/nuget
+          ./pushnuget.sh <secret key>
