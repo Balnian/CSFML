@@ -13,5 +13,5 @@ jobs:
       run: mkdir build
     - name: Cmake
       run:  |
-        cd build,
+        cd build
         cmake ..
