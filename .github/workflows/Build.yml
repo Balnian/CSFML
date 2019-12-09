@@ -59,6 +59,7 @@ jobs:
     - name: Setup Tools
       run: |
         brew install coreutils
+        brew install llvm
     - name: Build
       env:
         CC: clang
@@ -66,7 +67,7 @@ jobs:
       run:  |
         cd tools/nuget
         ls -al
-      #./build.linux.sh macos-x64
+        ./build.linux.sh macos-x64
 
   Package:
     needs: [Linux,Windows,Mac]
