@@ -10,9 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Create build directory
-      run: mkdir build
-    - name: Cmake
+    - name: Setup Tools
+      run: brew install coreutils
+    - name: Build
       run:  |
         cd tools/nuget
         ls -al
