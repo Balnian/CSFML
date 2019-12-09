@@ -27,4 +27,5 @@ jobs:
       run:  |
         cd tools/nuget
         ls -al
-        ./build.linux.sh macos-x64
+        ./build.linux.sh linux-x64
+        ls -al
