@@ -13,7 +13,5 @@ jobs:
       run: mkdir build
     - name: Step in build directory
       run: cd build
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Cmake
+      run: cmake .. 
