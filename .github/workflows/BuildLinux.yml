@@ -29,3 +29,10 @@ jobs:
         ls -al
         ./build.linux.sh linux-x64
         ls -al
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        # Artifact name
+        name: linux-x64
+        # Directory containing files to upload
+        path: tools/nuget/CSFML/runtimes/$RID/native
