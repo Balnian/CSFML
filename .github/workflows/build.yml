@@ -2,10 +2,11 @@ name: Build
 
 on: [push]
 
+
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: [macOS-latest]
 
     steps:
     - uses: actions/checkout@v1
@@ -13,5 +14,5 @@ jobs:
       run: mkdir build
     - name: Cmake
       run:  |
-        cd build
-        cmake ..
+        cd tools/nuget
+        ./build.linux.sh macos-x64
