@@ -42,7 +42,7 @@ jobs:
       - name: Build
         run:  |
           cd tools/nuget
-          build.win.ps1
+          .\build.win.ps1
       - name: Upload artifact x64
         uses: actions/upload-artifact@v1.0.0
         with:
