@@ -10,7 +10,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Create build directory
-      run: ls -al
+      run: mkdir build
+    - name: Step in build directory
+      run: cd build
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
