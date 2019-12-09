@@ -35,4 +35,4 @@ jobs:
         # Artifact name
         name: linux-x64
         # Directory containing files to upload
-        path: tools/nuget/CSFML/runtimes/$RID/native
+        path: tools/nuget/CSFML/runtimes/linux-x64/native
