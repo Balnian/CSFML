@@ -59,8 +59,8 @@ jobs:
     - name: Setup Tools
       run: |
         brew install coreutils
-        brew install llvm
-        echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.bash_profile
+      #brew install llvm
+      #echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.bash_profile
     - name: Build
       env:
         #CC: clang
@@ -69,7 +69,7 @@ jobs:
         CPPFLAGS: -I/usr/local/opt/llvm/include
       run:  |
         cd tools/nuget
-        ./build.linux.sh macos-x64
+      #./build.linux.sh macos-x64
 
   Package:
     needs: [Linux,Windows,Mac]
