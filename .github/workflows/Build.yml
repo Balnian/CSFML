@@ -43,21 +43,21 @@ jobs:
         run:  |
           cd tools/nuget
           cmake.exe --version
-          .\build.win.ps1
-      - name: Upload artifact x64
-        uses: actions/upload-artifact@v1.0.0
-        with:
+       # .\build.win.ps1
+      #- name: Upload artifact x64
+       # uses: actions/upload-artifact@v1.0.0
+        #with:
           # Artifact name
-          name: win-x64
+         # name: win-x64
           # Directory containing files to upload
-          path: tools/nuget/CSFML/runtimes/win-x64
-      - name: Upload artifact x86
-        uses: actions/upload-artifact@v1.0.0
-        with:
+          #path: tools/nuget/CSFML/runtimes/win-x64
+      #- name: Upload artifact x86
+       # uses: actions/upload-artifact@v1.0.0
+        #with:
           # Artifact name
-          name: win-x86
+         # name: win-x86
           # Directory containing files to upload
-          path: tools/nuget/CSFML/runtimes/win-x86
+          #path: tools/nuget/CSFML/runtimes/win-x86
         
   Mac:
     runs-on: [macOS-latest]
@@ -73,7 +73,7 @@ jobs:
       run:  |
         cd tools/nuget
         ls -al
-        ./build.linux.sh macos-x64
+      #./build.linux.sh macos-x64
 
   Package:
     needs: [Linux,Windows,Mac]
