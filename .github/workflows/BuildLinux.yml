@@ -10,6 +10,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Install deps
+      run: |
+        apt install x11
     - name: Build
       run:  |
         cd tools/nuget
