@@ -79,6 +79,8 @@ jobs:
     needs: [Linux,Windows,Mac]
     runs-on: [ubuntu-latest]
     steps:
+      - name: Create Directory
+        run: mkdir -p tools/nuget/CSFML/runtimes
       # Dowload Linux Artifact
       - name: Download artifact
         uses: actions/download-artifact@v1.0.0
@@ -86,7 +88,7 @@ jobs:
           # Artifact name
           name: linux-x64# optional
           # Destination path
-          path: CSFML/runtimes # optional
+          path: tools/nuget/CSFML/runtimesCSFML/runtimes # optional
           # artifact source
           source: # optional, default is current
       # Dowload Windows Artifact
@@ -95,4 +97,4 @@ jobs:
         run: |
           cd tools/nuget
           ls -al CSFML/runtimes
-          ./pushnuget.sh <secret key>
+        #./pushnuget.sh <secret key>
