@@ -62,11 +62,13 @@ jobs:
         brew install llvm
     - name: Build
       env:
-        CC: clang
-        CXX: clang++
+        #CC: clang
+        #CXX: clang++
+        LDFLAGS: -L/usr/local/opt/llvm/lib
+        CPPFLAGS: -I/usr/local/opt/llvm/include
       run:  |
         cd tools/nuget
-        ls -al
+        lecho 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.bash_profile
         ./build.linux.sh macos-x64
 
   Package:
