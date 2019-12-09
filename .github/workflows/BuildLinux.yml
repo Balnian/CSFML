@@ -4,7 +4,7 @@ on: [push]
 
 
 jobs:
-  build:
+  buildLinux:
 
     runs-on: [ubuntu-latest]
 
@@ -26,9 +26,7 @@ jobs:
     - name: Build
       run:  |
         cd tools/nuget
-        ls -al
         ./build.linux.sh linux-x64
-        ls -al
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
       with:
@@ -36,3 +34,26 @@ jobs:
         name: linux-x64
         # Directory containing files to upload
         path: tools/nuget/CSFML/runtimes/linux-x64/native
+  
+  BuildWindows:
+    runs-on: [windows-latest]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build
+        run:  |
+          cd tools/nuget
+          build.win.ps1
+      - name: Upload artifact x64
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: win-x64
+          # Directory containing files to upload
+          path: tools/nuget/CSFML/runtimes/win-x64/native
+      - name: Upload artifact x86
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: win-x86
+          # Directory containing files to upload
+          path: tools/nuget/CSFML/runtimes/win-x86/native
