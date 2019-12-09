@@ -80,9 +80,19 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       # Dowload Linux Artifact
+      - name: Download artifact
+        uses: actions/download-artifact@v1.0.0
+        with:
+          # Artifact name
+          name: linux-x64# optional
+          # Destination path
+          path: CSFML/runtimes # optional
+          # artifact source
+          source: # optional, default is current
       # Dowload Windows Artifact
       # Dowload macOS Artifact
       - name: Package Nuget
         run: |
           cd tools/nuget
+          ls -al CSFML/runtimes
           ./pushnuget.sh <secret key>
