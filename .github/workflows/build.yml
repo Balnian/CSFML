@@ -13,8 +13,10 @@ jobs:
     - name: Setup Tools
       run: |
         brew install coreutils
-        brew install --with-toolchain llvm
     - name: Build
+      env:
+        CC: clang
+        CXX: clang++
       run:  |
         cd tools/nuget
         ls -al
