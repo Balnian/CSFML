@@ -11,7 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Setup Tools
-      run: brew install coreutils
+      run: |
+        brew install coreutils
+        brew install --with-toolchain llvm
     - name: Build
       run:  |
         cd tools/nuget
