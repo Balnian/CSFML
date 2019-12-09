@@ -12,7 +12,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install deps
       run: |
-        sudo apt install x11
+        sudo apt install xorg
     - name: Build
       run:  |
         cd tools/nuget
