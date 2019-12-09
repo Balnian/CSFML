@@ -15,4 +15,5 @@ jobs:
     - name: Cmake
       run:  |
         cd tools/nuget
+        ls -al
         ./build.linux.sh macos-x64
